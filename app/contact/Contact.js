@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-// scehma for the contacts
+// Schema for the contacts
 // schema is a blueprint for the data
 
 export default model(
@@ -10,8 +10,8 @@ export default model(
       type: String,
       required: [true, "Username is required"],
       unique: [true, "Username already exists"],
-      minlength: [3, "Username must be at least 3 characters long"],
-      maxlength: [20, "Username must be at most 20 characters long"],
+      minLength: [3, "Username must be at least 3 characters long"],
+      maxLength: [20, "Username must be at most 20 characters long"],
     },
     phrase: { type: String, required: false },
     avatar: { type: String, required: false },

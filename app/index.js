@@ -1,6 +1,6 @@
 import express from "express";
 
-import contactsRouter from "./student/routes.js";
+import contactsRouter from "./contact/routes.js";
 
 const app = express();
 
@@ -13,6 +13,6 @@ app.use(express.json());
 // any request that starts with /api/students will be handled by studentRoutes
 app.use("/api/students/", contactsRouter);
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.info("Server is running on port 3000");
 });
