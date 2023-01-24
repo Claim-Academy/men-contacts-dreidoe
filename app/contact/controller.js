@@ -26,4 +26,12 @@ export default {
     // Wrap the error in a rejected promise so that it can be CAUGHT.
     return Promise.reject(new Error("Invalid ID"));
   },
+
+  // TODO: write a method  to update a contact
+  updateContact(id, contact) {
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      return Contact.findByIdAndUpdate;
+    }
+    return Promise.reject(new Error("Invalid ID"));
+  },
 };
