@@ -34,4 +34,10 @@ router.get("/:id", async (request, response) => {
   }
 });
 
+// TODO: write a route to update a contact
+router.put("/:id", async (request, response) => {
+  const { id } = request.params;
+  const contact = request.body;
+});
+
 export default router;
