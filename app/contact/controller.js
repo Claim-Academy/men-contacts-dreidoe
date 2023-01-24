@@ -34,4 +34,12 @@ export default {
     }
     return Promise.reject(new Error("Invalid ID"));
   },
+
+  // TODO: write a method to delete a contact
+  deleteContact(id) {
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      return Contact.findByIdAndDelete;
+    }
+    return Promise.reject(new Error("Invalid ID"));
+  },
 };
