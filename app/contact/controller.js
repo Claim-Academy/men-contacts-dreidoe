@@ -31,7 +31,9 @@ const contactController = {
   updateContact(id2Update, updatedContact) {
     if (mongoose.Types.ObjectId.isValid(id2Update)) {
       return Contact.findByIdAndUpdate(id2Update, updatedContact, {
+        // by adding these validators you will be able to update only the fields that you want individually
         returnDocument: "after",
+        returnValidators: true,
       });
     }
     return Promise.reject(new Error("Invalid ID"));
