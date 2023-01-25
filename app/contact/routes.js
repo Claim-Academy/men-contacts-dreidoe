@@ -38,16 +38,20 @@ router.get("/:id", async (request, response) => {
 router.put("/:id", async (request, response) => {
   const { id } = request.params;
   const contact = request.body;
-  if (!contact) {
-    return response.status(400).json({ message: "Invalid contact" });
+  if (contact) {
+    response.jason(contact);
+  } else {
+    response.status(404).json({ message: "Contact not found" });
   }
 });
 // TODO: write a route to delete a contact
 router.delete("/:id", async (request, response) => {
   const { id } = request.params;
   const contact = request.body;
-  if (!contact) {
-    return response.status(400).json({ message: "Invalid contact" });
+  if (contact) {
+    response.jason(contact);
+  } else {
+    response.status(404).json({ message: "Contact not found" });
   }
 });
 export default router;
