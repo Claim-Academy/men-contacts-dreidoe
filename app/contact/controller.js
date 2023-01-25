@@ -52,5 +52,24 @@ const contactController = {
   showByUserName(username) {
     return Contact.findOne({ username });
   },
+
+  updateByUserName(username, updatedContact) {
+    return Contact.updateOne({
+      username,
+      updatedContact,
+      returnDocument: "after",
+      returnValidators: true,
+    });
+  },
+
+  deleteById(id2Delete) {
+    if (mongoose.Types.ObjectId.isValid(id2Delete)) {
+      return Contact.findByIdAndDelete(id2Delete);
+    }
+    return Promise.reject(new Error("Invalid ID"));
+  },
+  deleteByUserName(username) {
+    return Contact.findOneAndDelete({ username });
+  },
 };
 export default contactController;
