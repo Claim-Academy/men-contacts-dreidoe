@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import config from "../config.js";
 import Contact from "./Contact.js";
-
+mongoose.set("strictQuery", false);
 // Connect to the database
 mongoose
-  .connect(config.DbConn)
+  .connect(config.dbConn)
   .then(() => {
     console.info("Connected to the database");
   })
