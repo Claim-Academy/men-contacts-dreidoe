@@ -12,7 +12,7 @@ mongoose
     console.error("Error connecting to the database", err.message);
   });
 
-export default {
+const contactController = {
   // Get all contacts
   index() {
     return Contact.find();
@@ -38,8 +38,8 @@ export default {
   },
 
   // TODO: write a method to delete a contact
-  deleteContact(id) {
-    if (mongoose.Types.ObjectId.isValid(id)) {
+  deleteContact(id2Delete) {
+    if (mongoose.Types.ObjectId.isValid(id2Delete)) {
       return Contact.findByIdAndDelete;
     }
     return Promise.reject(new Error("Invalid ID"));
@@ -51,3 +51,4 @@ export default {
     return Contact.findOne({ username });
   },
 };
+export default contactController;
