@@ -4,7 +4,7 @@ import Contact from "./Contact.js";
 
 // Connect to the database
 mongoose
-  .connect(config.getDbConn("contacts"))
+  .connect(config.DbConn)
   .then(() => {
     console.info("Connected to the database");
   })

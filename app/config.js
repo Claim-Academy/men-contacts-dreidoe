@@ -6,7 +6,5 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default {
-  getDbConn(dbConnectionString) {
-    return `${process.env.DB_CONN}/${dbConnectionString}?retryWrites=true&w=majority`;
-  },
+  dbConn: process.env.DB_CONN,
 };
