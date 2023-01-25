@@ -28,9 +28,11 @@ export default {
   },
 
   // TODO: write a method  to update a contact
-  updateContact(id, contact) {
-    if (mongoose.Types.ObjectId.isValid(id)) {
-      return Contact.findByIdAndUpdate;
+  updateContact(id2Update, updatedContact) {
+    if (mongoose.Types.ObjectId.isValid(id2Update)) {
+      return Contact.findByIdAndUpdate(id2Update, updatedContact, {
+        runValidators: true,
+      });
     }
     return Promise.reject(new Error("Invalid ID"));
   },
@@ -41,5 +43,11 @@ export default {
       return Contact.findByIdAndDelete;
     }
     return Promise.reject(new Error("Invalid ID"));
+  },
+
+  // TODO: write a method to show by username
+
+  showByUserName(username) {
+    return Contact.findOne({ username });
   },
 };
