@@ -31,7 +31,7 @@ const contactController = {
   updateContact(id2Update, updatedContact) {
     if (mongoose.Types.ObjectId.isValid(id2Update)) {
       return Contact.findByIdAndUpdate(id2Update, updatedContact, {
-        runValidators: true,
+        returnDocument: "after",
       });
     }
     return Promise.reject(new Error("Invalid ID"));
