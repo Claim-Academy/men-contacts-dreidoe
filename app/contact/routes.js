@@ -2,7 +2,7 @@ import { Router } from "express";
 import controller from "./controller.js";
 
 const router = new Router();
-
+// this will handle http GET requests to /contacts
 router.get("/", (_, response) => {
   controller
     .index()
@@ -37,7 +37,7 @@ router.get("/:id", async (request, response) => {
 // TODO: write a route to update a contact
 router.put("/:id", async (request, response) => {
   const { id } = request.params;
-  const contact = request.body;
+  const updatedContact = await controller.update(id, request.body).catch((err) => {;
   if (contact) {
     response.jason(contact);
   } else {
@@ -47,7 +47,7 @@ router.put("/:id", async (request, response) => {
 // TODO: write a route to delete a contact
 router.delete("/:id", async (request, response) => {
   const { id } = request.params;
-  const contact = request.body;
+  const deletedContact = await controller.delete(id, request.body).catch((err) => {;
   if (contact) {
     response.jason(contact);
   } else {
